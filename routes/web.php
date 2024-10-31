@@ -7,9 +7,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::group([
+        'as' => 'doctor.',
+        'middleware' => 'is_doctor',
+    ], function () {
+        Route::get('/appointment', [App\Http\Controllers\Doctor\AppointmentController::class, 'index'])
+            ->name('appointment.index');
+    });
+
+//    Route::group([
+//        'as' => 'patient.',
+//    ], function () {
+//        Route::get('/appointment', [App\Http\Controllers\Patient\AppointmentController::class, 'index'])
+//            ->name('appointment.index');
+//    });
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
