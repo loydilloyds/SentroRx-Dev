@@ -15,7 +15,7 @@ class IsDoctorMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!auth()->check() || auth()->user()->role <> 'doctor'){
+        if(auth()->user()->role <> 'doctor'){
             abort(403);
         }
         return $next($request);

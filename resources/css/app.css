@@ -4,3 +4,52 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+.appointment-action-button {
+    border-radius: theme('borderRadius.md');
+    padding: theme('padding.1') theme('padding[2.5]');
+    width: fit-content;
+    font-weight: bold;
+    background: theme('colors.blue.500');
+    color: theme('colors.srx-white');
+}
+
+.appointment-action-button {
+    @apply w-fit rounded-md px-2.5 py-1.5 bg-transparent border-2 border-blue-500 font-medium text-sm text-blue-500 hover:bg-blue-500 hover:text-srx-white transition duration-300 ease-in-out transform hover:scale-100;
+}
+
+.status-label {
+    @apply w-1/2 text-center p-1 rounded-md font-bold;
+}
+
+.status-label--cancelled {
+    @apply bg-red-100 text-red-500;
+}
+
+.status-label--approved {
+    @apply bg-green-100 text-green-600;
+}
+
+.status-label--adjusted {
+    @apply bg-yellow-100 text-yellow-600;
+}
+
+.status-label--pending {
+    @apply bg-gray-100 text-gray-500;
+}
+
+.status-label--default {
+    @apply bg-blue-100 text-blue-500;
+}
+
+.nav {
+    @apply font-normal text-base text-srx-blue hover:text-srx-green transition duration-300 ease-in-out;
+}
+
+.welcome-primary-button {
+    @apply bg-srx-blue border-2 border-srx-blue text-white py-3 px-5 rounded hover:text-white hover:border-srx-green hover:bg-srx-green hover:shadow-[0_0_6px_rgba(50,197,81,1)] transition duration-300 ease-in-out;
+}
+
+.welcome-secondary-button {
+    @apply border-srx-blue border-2 py-3 px-4 text-srx-blue hover:text-srx-green rounded hover:border-srx-green hover:shadow-[0_0_6px_rgba(50,197,81,1)] transition duration-300 ease-in-out;
+}

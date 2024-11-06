@@ -4,24 +4,20 @@
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
-                <a href="#">
+                <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                </a>
+                </x-nav-link>
             </div>
 
             <div class="flex">
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    @if(auth()->user()->role === 'doctor')
-                        <x-nav-link :href="route('doctor.appointment.index')" :active="request()->routeIs('doctor.appointment.index')">
-                            {{ __('Appointment') }}
-                        </x-nav-link>
-                    @else
-                        <x-nav-link :href="route('patient.appointment.index')" :active="request()->routeIs('patient.appointment.index')">
-                            {{ __('Appointment') }}
-                        </x-nav-link>
-                    @endif
-
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('appointment')" :active="request()->routeIs('appointment')">
+                        {{ __('Appointment') }}
+                    </x-nav-link>
                     <x-nav-link href="#" :active="false">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -80,15 +76,9 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            @if(auth()->user()->role === 'doctor')
-                <x-nav-link :href="route('doctor.appointment.index')" :active="request()->routeIs('doctor.appointment.index')">
-                    {{ __('Appointment') }}
-                </x-nav-link>
-            @else
-                <x-nav-link :href="route('patient.appointment.index')" :active="request()->routeIs('patient.appointment.index')">
-                    {{ __('Appointment') }}
-                </x-nav-link>
-            @endif
+            <x-nav-link :href="route('appointment')" :active="request()->routeIs('appointment')">
+                {{ __('Appointment') }}
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

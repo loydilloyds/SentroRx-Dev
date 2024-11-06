@@ -57,4 +57,14 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function home()
+    {
+        if (auth()->user()->role === 'doctor') {
+            return view('doctor.index');
+        }
+
+        return view('patient.index');
+    }
+
 }
