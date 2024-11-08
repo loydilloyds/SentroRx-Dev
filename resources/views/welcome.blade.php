@@ -23,14 +23,14 @@
             <a href="/">
                 <x-application-logo class="h-9"/>
             </a>
-            <nav class="flex gap-4 items-center">
+            <nav class="flex gap-4 items-center font-medium">
                 <a href="/" class="nav">Home</a>
                 <a href="/appointments" class="nav">Appointments</a>
-                <a href="{{ route('login') }}"
+                <a href="{{ route('register') }}"
                    class="nav welcome-secondary-button leading-none">
                     Sign Up
                 </a>
-                <a href="{{ route('register') }}"
+                <a href="{{ route('login') }}"
                    class="nav welcome-primary-button leading-none">
                     Log In
                 </a>
